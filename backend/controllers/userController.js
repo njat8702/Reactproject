@@ -25,4 +25,14 @@ const createUser = ((req, res) => {
         res.json({message: "User Inserted Successfully!"})
     });
 });
-module.exports = {createUser,fetchUser,removeUser}
+const editUser = ((req, res)=> {
+    const id = req.params;
+    const user = req.body;
+    userModel.updateUser(user,(err, result) => {
+        if(err){
+            return res.status(500).json(err);
+        }
+        res.json({message: "User updated Successfully"});
+    });
+});
+module.exports = {createUser,fetchUser,removeUser,editUser}

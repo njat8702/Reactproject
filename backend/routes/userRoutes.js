@@ -6,5 +6,6 @@ const { createUser, fetchUser, removeUser } = require("../controllers/userContro
 router.post("/user", createUser);
 router.get("/user", fetchUser);
 router.delete("/user/id",removeUser);
+router.put("/users/:id", editUser);
 
 module.exports = router;

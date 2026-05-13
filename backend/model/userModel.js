@@ -11,5 +11,14 @@ const getUsers=(callback)=>{
 const insertUser = (user, callback) => {
     const sql = "insert into users(name, age) values(?,?)"
     db.query(sql, [user.name, user.age], callback);
-}
-module.exports = {insertUser,getUsers,deleteUser}
+};
+const removeUser = (id, callback) => {
+    const sql = "delete from users where id = ?";
+    db.query(sql, callback);
+};
+
+const updateUser = (id, user, callback) => {
+    const sql = "update users set name=?, age=?, where id=?";
+    db.query(sql,[user.name, user.age, id], callback);
+};
+module.exports = {insertUser,getUsers,deleteUser,removeUser,updateUser}
