@@ -35,4 +35,13 @@ const editUser = ((req, res)=> {
         res.json({message: "User updated Successfully"});
     });
 });
-module.exports = {createUser,fetchUser,removeUser,editUser}
+const deleteUser = ((req, res)=> {
+    const id = req.params.id;
+    userModel.removeUser(id,(err, result) => {
+        if(err){
+            return res.status(500).json(err);
+        }
+        res.json({message: "User deleted Successfully"});
+    });
+});
+module.exports = {createUser,fetchUser,removeUser,editUser,deleteUser}
