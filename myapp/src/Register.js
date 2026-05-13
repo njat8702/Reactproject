@@ -8,10 +8,10 @@ function Register() {
         contact:""
     });
 
-    const[users,setUser]=useState([]);
+    
 
     const deleteUser=(id)=>{
-        axios.delete(`http://localhost:5000/api/user/$(id)`)
+        axios.delete(`http://localhost:5000/api/user/${id}`)
         .then((res)=>{
             alert(res.data.message);
             fetchUser();
@@ -19,7 +19,7 @@ function Register() {
             console.log(err);
         });
     }
-
+const[users,setUser]=useState([]);
     const fetchUser=()=>{
         axios.get("http://localhost:5000/api/user").then((res)=>{
             setUser( res.data.users || res.data || []);
@@ -30,11 +30,13 @@ function Register() {
     useEffect(()=>{
         fetchUser();
     },[]);
+
+    // post method
     const handleSubmit=(e)=>{
         e.preventDefault()
         let name=formData.name;
         let age=formData.age;
-        axios.get("http://localhost:3001/user",{
+        axios.post("http://localhost:5000/api/user",{
             name,
             age
         }).then(res=>{
@@ -74,7 +76,7 @@ function Register() {
             <thead>
             <tr>
                 <td>Contact</td>
-                <td><input type='text' name='contact' value={formData. contact} onChange={handleChange}/></td>
+                <td><input type='text' name='contact' value={formData.contact} onChange={handleChange}/></td>
             </tr>
             </thead>
             <thead>

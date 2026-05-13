@@ -1,13 +1,6 @@
 const userModel = require("../model/userModel");
 
-const removeUser=(req,res)=>{
-    const id=req.params.id;
-    userModel.deleteUser(id,(err,result)=>{
-        if(err)
-            return res.status(500).json(err);
-        res.json({message:"User Delete Successfully"})
-    });
-};
+
 const fetchUser = ((req, res) => {
     userModel.getUsers((err, result) => {
         if(err){
@@ -44,4 +37,4 @@ const deleteUser = ((req, res)=> {
         res.json({message: "User deleted Successfully"});
     });
 });
-module.exports = {createUser,fetchUser,removeUser,editUser,deleteUser}
+module.exports = {createUser,fetchUser,editUser,deleteUser}
