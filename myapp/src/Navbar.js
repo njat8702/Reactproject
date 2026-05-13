@@ -3,6 +3,7 @@ import {BrowserRouter,Routes,Route,Link} from 'react-router-dom'
 import Home from './Home';
 import Register from './Register';
 import Contact from './Contact';
+import Login from './Login';
 
 function Navbar() {
   const myStyle={
@@ -16,11 +17,13 @@ function Navbar() {
         <Link to="/" style={myStyle}>Home</Link>
         <Link to="/register" style={myStyle}>Register</Link>
         <Link to="/contact" style={myStyle}>Contact</Link>
+        <Link to="/login" style={myStyle}>Login</Link>
       </nav>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </BrowserRouter>
    
