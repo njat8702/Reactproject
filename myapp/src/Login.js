@@ -7,10 +7,12 @@ function Login() {
     const[password,setPassword]=useState("");
     const[msg,setMsg]=useState("");
 
-    const handleLogin=()=>{
+    const navigate = useNavigate();
+
+    const handleLogin=(e)=>{
         e.preventDefault();
         if(username=="admin" && password=="12345")
-            Navigate("/register")
+            navigate("/register")
         else
             setMsg("Invalid UserName and Password")
     }

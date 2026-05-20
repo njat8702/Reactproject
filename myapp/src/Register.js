@@ -50,6 +50,7 @@ const[users,setUser]=useState([]);
             contact:""
         })
     }
+
     const handleChange=(e)=>{
         const{name,value}=e.target;
         setFormData({
@@ -57,8 +58,19 @@ const[users,setUser]=useState([]);
             [name]:value
         });
     }
+
+    const [isLogin,setLogin]=useState(false);
+    
   return (
+    
    <div>
+            <div>
+            {
+                isLogin ? <h1>Welcome User</h1>
+                :<h1>Please Login</h1>
+            };
+            <button onClick={()=>setLogin(! isLogin)}>Login</button>
+            </div>
       
         <table border={1} align='center' cellSpacing={0} cellPadding={10}>
             <thead>
